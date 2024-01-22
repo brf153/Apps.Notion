@@ -126,11 +126,13 @@ export class ExecuteBlockActionHandler {
                 break;
             }
             case CommentPage.COMMENT_ON_PAGE_SUBMIT_ACTION: {
-                return this.handleCommentOnPage(
+                
+                await this.handleCommentOnPage(
                     modalInteraction,
                     oAuth2Storage,
                     roomInteractionStorage
                 );
+                await modalInteraction.clearInputElementState(CommentPage.COMMENT_INPUT_ACTION)
                 break;
             }
             case CommentPage.COMMENT_INPUT_ACTION: {
